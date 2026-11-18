@@ -1,0 +1,10 @@
+services:
+  pypi-cache:
+    build:
+      context: .
+    pull_policy: build
+    restart: unless-stopped
+    volumes:
+      - "${CACHE_DIR}:/var/lib/nginx/pypi"
+    ports:
+      - "${CACHE_PORT}:80"
